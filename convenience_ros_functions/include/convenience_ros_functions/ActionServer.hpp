@@ -158,7 +158,7 @@ void ActionServer<ActionMessage>::deleteServer(){
 }
 
 template<typename ActionMessage>
-void ActionServer<ActionMessage>::actionCallback(ActionGoalHandleT& goal){
+void ActionServer<ActionMessage>::actionCallback(ActionGoalHandleT goal){
     ROS_INFO_STREAM(this->actionTopic<<": received new goal.");
     if (!this->initialized) {
         ROS_ERROR("Action server not initialised, can't accept goal");
@@ -195,7 +195,7 @@ void ActionServer<ActionMessage>::actionCallback(ActionGoalHandleT& goal){
 }
 
 template<typename ActionMessage>
-void ActionServer<ActionMessage>::actionCancelCallback(ActionGoalHandleT& goal){
+void ActionServer<ActionMessage>::actionCancelCallback(ActionGoalHandleT goal){
     this->actionCancelCallbackImpl(goal);
     currentActionDone(actionlib::SimpleClientGoalState::ABORTED);
 }

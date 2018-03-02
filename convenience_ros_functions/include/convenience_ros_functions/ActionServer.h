@@ -123,7 +123,7 @@ protected:
      * this method returns false. Will *always* be called immediately
      * before actionCallbackImpl().
      */
-    virtual bool canAccept(const ActionGoalHandleT& goal)=0;
+    virtual bool canAccept(const ActionGoalHandleT goal)=0;
 
     /**
      * Receive a new goal: subclasses implementation. No need to set the goal to accepted, rejected, etc.
@@ -134,14 +134,14 @@ protected:
      * Once the action is done, call method currentActionDone() to finalize the execution of
      * this goal.
      */
-    virtual void actionCallbackImpl(const ActionGoalHandleT& goal)=0;
+    virtual void actionCallbackImpl(const ActionGoalHandleT goal)=0;
 
     /**
      * Receive a cancel instruction: subclasses implementation.
      * Only needs to be implemented if any special actions are required
      * upon canceling the action. 
      */
-    virtual void actionCancelCallbackImpl(ActionGoalHandleT& goal) {}
+    virtual void actionCancelCallbackImpl(ActionGoalHandleT goal) {}
 
 private:
 
@@ -152,12 +152,12 @@ private:
     /**
      * Receive a new goal
      */
-    void actionCallback(ActionGoalHandleT& goal);
+    void actionCallback(ActionGoalHandleT goal);
 
     /**
      * Receive a cancel instruction
      */
-    void actionCancelCallback(ActionGoalHandleT& goal);
+    void actionCancelCallback(ActionGoalHandleT goal);
 
     bool hasCurrentGoal();
 
